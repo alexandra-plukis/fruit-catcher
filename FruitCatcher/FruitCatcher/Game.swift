@@ -36,13 +36,14 @@ class Game: SKScene, SKPhysicsContactDelegate {
         backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         
         // the baset that catches all of the water drops
-        //let basketTexture = SKTexture(imageNamed: "basket.png")
-        basket = SKSpriteNode(imageNamed: "basket2.png")
-        //basket = SKSpriteNode(texture: basketTexture)
-        basket.position = CGPoint(x: frame.midX, y: frame.minY + 50.0)
-//        let basketBody = SKPhysicsBody(rectangleOf: basket.size)
-//        basketBody.isDynamic = false
-//        basket.physicsBody = basketBody
+        let basketTexture = SKTexture(imageNamed: "basket.png")
+//        basket = SKSpriteNode(imageNamed: "basket.png")
+        basket = SKSpriteNode(texture: basketTexture)
+        basket.position = CGPoint(x: frame.midX, y: frame.minY + 0.05 * frame.height)
+        let basketBody = SKPhysicsBody(rectangleOf: basket.size)
+        basketBody.isDynamic = false
+        basketBody.usesPreciseCollisionDetection = true
+        basket.physicsBody = basketBody
         basket.name = "Basket"
         addChild(basket)
         
@@ -208,6 +209,36 @@ class Game: SKScene, SKPhysicsContactDelegate {
 //            }
 //        }
 //    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let increment = CGFloat(frame.width * 0.01)
+        let duration = 0.05
+        let events = event?.allTouches
+        let touchEvent = events?.first
+        let touchLocation = touchEvent?.location(in: self)
+        let location = CGPoint(x: touchLocation!.x, y: touchLocation!.y)
+        if (location.x > frame.midX) {
+            basket.run(SKAction.moveBy(x: increment, y: 0, duration: duration))
+        }
+        else {
+            basket.run(SKAction.moveBy(x: -increment, y: 0, duration: duration))
+        }
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let increment = CGFloat(frame.width * 0.01)
+        let duration = 0.05
+        let events = event?.allTouches
+        let touchEvent = events?.first
+        let touchLocation = touchEvent?.location(in: self)
+        let location = CGPoint(x: touchLocation!.x, y: touchLocation!.y)
+        if (location.x > frame.midX) {
+            basket.run(SKAction.moveBy(x: increment, y: 0, duration: duration))
+        }
+        else {
+            basket.run(SKAction.moveBy(x: -increment, y: 0, duration: duration))
+        }
+    } 
 }
 
 

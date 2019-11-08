@@ -14,8 +14,7 @@
 		A8CED18F2375F966006084BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8CED18D2375F966006084BD /* LaunchScreen.storyboard */; };
 		A8CED19C2375FCA8006084BD /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CED19B2375FCA8006084BD /* Game.swift */; };
 		A8CED19E2375FE96006084BD /* Intro.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CED19D2375FE96006084BD /* Intro.swift */; };
-		A8CED1A0237603F4006084BD /* basket.png in Resources */ = {isa = PBXBuildFile; fileRef = A8CED19F237603F4006084BD /* basket.png */; };
-		A8CED1A2237604C4006084BD /* basket2.png in Resources */ = {isa = PBXBuildFile; fileRef = A8CED1A1237604C3006084BD /* basket2.png */; };
+		A8CED1A2237604C4006084BD /* basket.png in Resources */ = {isa = PBXBuildFile; fileRef = A8CED1A1237604C3006084BD /* basket.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +27,7 @@
 		A8CED1902375F966006084BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8CED19B2375FCA8006084BD /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		A8CED19D2375FE96006084BD /* Intro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro.swift; sourceTree = "<group>"; };
-		A8CED19F237603F4006084BD /* basket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = basket.png; sourceTree = "<group>"; };
-		A8CED1A1237604C3006084BD /* basket2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = basket2.png; sourceTree = "<group>"; };
+		A8CED1A1237604C3006084BD /* basket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = basket.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +64,7 @@
 				A8CED1862375F965006084BD /* ViewController.swift */,
 				A8CED19B2375FCA8006084BD /* Game.swift */,
 				A8CED19D2375FE96006084BD /* Intro.swift */,
-				A8CED1A1237604C3006084BD /* basket2.png */,
-				A8CED19F237603F4006084BD /* basket.png */,
+				A8CED1A1237604C3006084BD /* basket.png */,
 				A8CED1882375F965006084BD /* Main.storyboard */,
 				A8CED18B2375F966006084BD /* Assets.xcassets */,
 				A8CED18D2375F966006084BD /* LaunchScreen.storyboard */,
@@ -136,9 +133,8 @@
 			files = (
 				A8CED18F2375F966006084BD /* LaunchScreen.storyboard in Resources */,
 				A8CED18C2375F966006084BD /* Assets.xcassets in Resources */,
-				A8CED1A2237604C4006084BD /* basket2.png in Resources */,
+				A8CED1A2237604C4006084BD /* basket.png in Resources */,
 				A8CED18A2375F965006084BD /* Main.storyboard in Resources */,
-				A8CED1A0237603F4006084BD /* basket.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

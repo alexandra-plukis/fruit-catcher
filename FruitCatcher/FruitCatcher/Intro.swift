@@ -34,9 +34,11 @@ class Intro: SKScene {
         
         // the welcome label that welcomes the user to play the game
         let textNode = SKLabelNode(fontNamed: "Helvetica Bold")
-        textNode.text = "push to play the rain game!"
-        textNode.fontSize = 48
-        textNode.position = CGPoint(x: size.width / 2.0, y: (size.height / 2) + 90)
+        textNode.text = "push to play\nthe rain game!"
+        textNode.numberOfLines = 3
+        textNode.fontSize = CGFloat(frame.height * 0.05)
+        textNode.horizontalAlignmentMode = .center
+        textNode.position = CGPoint(x: size.width / 2.0, y: (size.height / 2) + (size.height * 0.1))
         textNode.name = "Welcome Label"
         addChild(textNode)
         
