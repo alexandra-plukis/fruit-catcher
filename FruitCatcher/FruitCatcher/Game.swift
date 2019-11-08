@@ -37,7 +37,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
         
         // the baset that catches all of the water drops
         //let basketTexture = SKTexture(imageNamed: "basket.png")
-        basket = SKSpriteNode(imageNamed: "basket.png")
+        basket = SKSpriteNode(imageNamed: "basket2.png")
         //basket = SKSpriteNode(texture: basketTexture)
         basket.position = CGPoint(x: frame.midX, y: frame.minY + 50.0)
 //        let basketBody = SKPhysicsBody(rectangleOf: basket.size)
