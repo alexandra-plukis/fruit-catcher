@@ -41,7 +41,7 @@ class Intro: SKScene {
         addChild(textNode)
         
         // the play button background
-        let playRect = SKSpriteNode(color: NSColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), size: CGSize(width: 150.0, height: 70.0))
+        let playRect = SKSpriteNode(color: UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), size: CGSize(width: 150.0, height: 70.0))
         playRect.position = CGPoint(x: size.width / 2.0, y: (size.height / 2) + 15.0)
         playRect.name = "Play Rectangle"
         addChild(playRect)
@@ -50,7 +50,7 @@ class Intro: SKScene {
         playButton = SKLabelNode(fontNamed: "Helvetica Bold")
         playButton.text = "play!"
         playButton.fontSize = 44
-        playButton.fontColor = NSColor(red: r, green: g, blue: b, alpha: a)
+        playButton.fontColor = UIColor(red: r, green: g, blue: b, alpha: a)
         playButton.position = CGPoint(x: size.width / 2.0, y: (size.height / 2))
         playButton.name = "Play Label"
         addChild(playButton)
@@ -73,17 +73,31 @@ class Intro: SKScene {
     }
     
     // when the player presses the button, we want to start the game with a Game scene
-    override func mouseDown(with event: NSEvent) {
-        let eventLocation = event.locationInWindow
-        let location = CGPoint(x: eventLocation.x, y: eventLocation.y)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let events = event?.allTouches
+        let touchEvent = events?.first
+        let touchLocation = touchEvent?.location(in: self)
+        let location = CGPoint(x: touchLocation!.x, y: touchLocation!.y)
         if playButton.contains(location) {
             if let view = view {
                 let game = Game(size: size)
                 let transition = SKTransition.fade(withDuration: 1.0)
                 view.presentScene(game, transition: transition)
+                }
             }
         }
-    }
+        
+//    override func mouseDown(with event: UIEvent) {
+//        let eventLocation = event.locationInWindow
+//        let location = CGPoint(x: eventLocation.x, y: eventLocation.y)
+//        if playButton.contains(location) {
+//            if let view = view {
+//                let game = Game(size: size)
+//                let transition = SKTransition.fade(withDuration: 1.0)
+//                view.presentScene(game, transition: transition)
+//            }
+//        }
+//    }
     
 }
 
