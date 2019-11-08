@@ -12,6 +12,9 @@
 		A8CED18A2375F965006084BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8CED1882375F965006084BD /* Main.storyboard */; };
 		A8CED18C2375F966006084BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8CED18B2375F966006084BD /* Assets.xcassets */; };
 		A8CED18F2375F966006084BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8CED18D2375F966006084BD /* LaunchScreen.storyboard */; };
+		A8CED19A2375FC81006084BD /* basket.png in Resources */ = {isa = PBXBuildFile; fileRef = A8CED1992375FC81006084BD /* basket.png */; };
+		A8CED19C2375FCA8006084BD /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CED19B2375FCA8006084BD /* Game.swift */; };
+		A8CED19E2375FE96006084BD /* Intro.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CED19D2375FE96006084BD /* Intro.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		A8CED18B2375F966006084BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8CED18E2375F966006084BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A8CED1902375F966006084BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A8CED1992375FC81006084BD /* basket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = basket.png; sourceTree = "<group>"; };
+		A8CED19B2375FCA8006084BD /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		A8CED19D2375FE96006084BD /* Intro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,9 @@
 			children = (
 				A8CED1842375F965006084BD /* AppDelegate.swift */,
 				A8CED1862375F965006084BD /* ViewController.swift */,
+				A8CED19B2375FCA8006084BD /* Game.swift */,
+				A8CED19D2375FE96006084BD /* Intro.swift */,
+				A8CED1992375FC81006084BD /* basket.png */,
 				A8CED1882375F965006084BD /* Main.storyboard */,
 				A8CED18B2375F966006084BD /* Assets.xcassets */,
 				A8CED18D2375F966006084BD /* LaunchScreen.storyboard */,
@@ -125,6 +134,7 @@
 				A8CED18F2375F966006084BD /* LaunchScreen.storyboard in Resources */,
 				A8CED18C2375F966006084BD /* Assets.xcassets in Resources */,
 				A8CED18A2375F965006084BD /* Main.storyboard in Resources */,
+				A8CED19A2375FC81006084BD /* basket.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +146,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8CED1872375F965006084BD /* ViewController.swift in Sources */,
+				A8CED19C2375FCA8006084BD /* Game.swift in Sources */,
+				A8CED19E2375FE96006084BD /* Intro.swift in Sources */,
 				A8CED1852375F965006084BD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
