@@ -35,7 +35,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
         ground = SKSpriteNode(color: UIColor(red: (54.0 / 255.0), green: (64.0 / 255.0), blue: (18.0 / 255.0), alpha: 1.0), size: CGSize(width: frame.width, height: frame.height * 0.05))
         let groundBody = SKPhysicsBody(rectangleOf: ground.size)
         ground.position = CGPoint(x: frame.width / 2.0, y: 0.0)
-//        groundBody.isDynamic = true
+        groundBody.isDynamic = false
         groundBody.affectedByGravity = false
         ground.physicsBody = groundBody
         ground.name = "Ground"
@@ -46,7 +46,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
         basket = SKSpriteNode(texture: basketTexture)
         basket.position = CGPoint(x: frame.midX, y: frame.minY + 0.05 * frame.height)
         let basketBody = SKPhysicsBody(rectangleOf: basket.size)
-        basketBody.isDynamic = true
+        basketBody.isDynamic = false
         basketBody.affectedByGravity = false
         basketBody.usesPreciseCollisionDetection = true
         basket.physicsBody = basketBody
@@ -105,61 +105,9 @@ class Game: SKScene, SKPhysicsContactDelegate {
         
         
     }
-//    
-//    // each time a key is pressed, we want to acces which key was pressed 
-//    // to decide the action we want to take
-//    override func keyDown(with event: NSEvent) {
-//        // if the action requested is to show the instructions
-//        if (event.charactersIgnoringModifiers == "i") {
-//            instructionsLabel.text = "arrow controls" + "\n" + "50pts to win" + "\n" + "(-1 for miss, +10 for hit)"
-//            instructionsLabel.position = CGPoint(x: 150, y: size.height - 100)
-//        }
-//        else {
-//            instructionsLabel.text = "press i for instructions"
-//            instructionsLabel.position = CGPoint(x: 150, y: size.height - 40)
-//        }
-//        
-//        // the increment by which we want to move the basket
-//        let increment = CGFloat(60.0), duration = 0.04
-//        guard let basket = basket else { print("basket node doesn't exist"); return }
-//        
-//        // learned how to use these keycodes from this 
-//        // stackoverflow question https://stackoverflow.com/questions/3202629/where-can-i-find-a-list-of-mac-virtual-key-codes/16125341
-//        
-//        // switch based on the keycode of the key pressed
-//        switch Int(event.keyCode) {
-//        case kVK_LeftArrow:
-//            if (basket.position.x <= frame.minX + basket.size.width) {
-//                basket.position.x = frame.maxX
-//            }
-//            basket.run(SKAction.moveBy(x: -increment, y: 0, duration: duration) )
-//            break
-//            
-//        case kVK_RightArrow:
-//            if (basket.position.x >= frame.maxX - basket.size.width) {
-//                basket.position.x = 0.0
-//            }
-//            basket.run(SKAction.moveBy(x: increment, y: 0, duration: duration) )
-//            break
-//            
-//        case kVK_UpArrow:
-//            if (basket.position.y < frame.maxY - basket.size.height) {
-//                basket.run(SKAction.moveBy(x: 0, y: increment, duration: duration))
-//                
-//            }
-//            break
-//            
-//        case kVK_DownArrow:
-//            if (basket.position.y >= frame.minY + 80.0) {
-//                basket.run(SKAction.moveBy(x: 0, y: -increment, duration: duration))
-//            }
-//            break
-//            
-//        default:
-//            break
-//        }
-//    }
-//    
+
+
+
     // if a physics contact begins, decide which collision it was and then 
     // create the necessary results
     func didBegin(_ contact: SKPhysicsContact) { // called whenever two physics bodies hit each other 
@@ -169,13 +117,13 @@ class Game: SKScene, SKPhysicsContactDelegate {
         
         if (nameA == "Basket" && nameB == "Fruit") {
             nodeB.run(SKAction.removeFromParent())
-            pointsLabel.text = String(points + 10)
+            pointsLabel.text = String(points + 2)
             points += 2
             evaluatePoints()
         } 
         else if (nameB == "Basket" && nameA == "Fruit") {
             nodeA.run(SKAction.removeFromParent())
-            pointsLabel.text = String(points + 10)
+            pointsLabel.text = String(points + 2)
             points += 2
             evaluatePoints()
         } 
