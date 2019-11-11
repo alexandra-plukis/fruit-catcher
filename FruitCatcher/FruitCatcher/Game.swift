@@ -53,6 +53,16 @@ class Game: SKScene, SKPhysicsContactDelegate {
         addChild(basket)
         let xConstraint = SKConstraint.positionX(SKRange(lowerLimit: basket.size.width / 2, upperLimit: frame.width - (basket.size.width / 2)))
         basket.constraints = [xConstraint]
+        
+        // next five textures are for the falling droplets so they look like fruit, they are all saved in fruitTextures
+        let appleTexture = SKTexture(imageNamed: "Apple Photo.png")
+        let bananaTexture = SKTexture(imageNamed: "Banana Photo.png")
+        let grapeTexture = SKTexture(imageNamed: "Grape Photo.png")
+        let peachTexture = SKTexture(imageNamed: "Peach Photo.png")
+        let pineappleTexture = SKTexture(imageNamed: "Pineapple Photo.png")
+        
+        let fruitTextures = [appleTexture, bananaTexture, grapeTexture, peachTexture, pineappleTexture]
+        
     
         // points label
         pointsLabel = SKLabelNode(fontNamed: "Helvetica Bold")
