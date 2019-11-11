@@ -18,7 +18,6 @@ class Game: SKScene, SKPhysicsContactDelegate {
     var basket: SKSpriteNode!
     var puddle: SKSpriteNode!
     var pointsLabel: SKLabelNode!
-    var instructionsLabel: SKLabelNode!
     var white: SKColor!
     var darkBlue: SKColor!
     var lightBlue: SKColor!
@@ -37,44 +36,27 @@ class Game: SKScene, SKPhysicsContactDelegate {
         
         // the baset that catches all of the water drops
         let basketTexture = SKTexture(imageNamed: "basket.png")
-//        basket = SKSpriteNode(imageNamed: "basket.png")
         basket = SKSpriteNode(texture: basketTexture)
         basket.position = CGPoint(x: frame.midX, y: frame.minY + 0.05 * frame.height)
         let basketBody = SKPhysicsBody(rectangleOf: basket.size)
-        basketBody.isDynamic = false
+        basketBody.isDynamic = true
+        basketBody.affectedByGravity = false
         basketBody.usesPreciseCollisionDetection = true
         basket.physicsBody = basketBody
         basket.name = "Basket"
         addChild(basket)
-        
-//        // the label that keeps track of the points
-//        pointsLabel = SKLabelNode(fontNamed: "Helvetica Bold")
-//        pointsLabel.text = "0"
-//        pointsLabel.fontColor = CGolor.black
-//        pointsLabel.fontSize = 48
-//        pointsLabel.position = CGPoint(x: size.width - 50, y: size.height - 50)
-//        pointsLabel.name = "Points Label"
-//        addChild(pointsLabel)
-//        
-//        // the puddle that takes up the botton of the screen
-//        puddle = SKSpriteNode(color: NSColor(red: (155.0 / 255.0), green: (167.0 / 255.0), blue: (191.0 / 255.0), alpha: 1.0), size: CGSize(width: frame.width, height: 60.0))
-//        puddle.position = CGPoint(x: frame.midX, y: 0.0)
-//        let puddleBody = SKPhysicsBody(rectangleOf: puddle.size)
-//        puddleBody.isDynamic = true
-//        puddleBody.affectedByGravity = false
-//        puddle.physicsBody = puddleBody
-//        puddle.name = "Puddle"
-//        addChild(puddle)
-//        
-//        // instructions on how to play the game
-//        instructionsLabel = SKLabelNode(fontNamed: "Helvetica Bold")
-//        instructionsLabel.numberOfLines = 3
-//        instructionsLabel.text = "press i for instructions"
-//        instructionsLabel.fontColor = NSColor.black
-//        instructionsLabel.fontSize = 24
-//        instructionsLabel.position = CGPoint(x: 150, y: size.height - 40)
-//        instructionsLabel.name = "Instructions Label"
-//        addChild(instructionsLabel)
+        let xConstraint = SKConstraint.positionX(SKRange(lowerLimit: basket.size.width / 2, upperLimit: frame.width - (basket.size.width / 2)))
+        basket.constraints = [xConstraint]
+    
+        // points label
+        pointsLabel = SKLabelNode(fontNamed: "Helvetica Bold")
+        pointsLabel.numberOfLines = 3
+        pointsLabel.text = "\(points)"
+        pointsLabel.fontColor = UIColor.black
+        pointsLabel.fontSize = CGFloat(frame.height * 0.04)
+        pointsLabel.position = CGPoint(x: frame.maxX - (size.width * 0.07), y: frame.maxY - (size.height * 0.07))
+        pointsLabel.name = "Points Label"
+        addChild(pointsLabel)
     }
     
 //    // initializing each of the colors used in the game for ease
@@ -212,31 +194,39 @@ class Game: SKScene, SKPhysicsContactDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let increment = CGFloat(frame.width * 0.01)
-        let duration = 0.05
+        let duration = 0.09
         let events = event?.allTouches
         let touchEvent = events?.first
         let touchLocation = touchEvent?.location(in: self)
         let location = CGPoint(x: touchLocation!.x, y: touchLocation!.y)
         if (location.x > frame.midX) {
-            basket.run(SKAction.moveBy(x: increment, y: 0, duration: duration))
+            let action = SKAction.moveBy(x: increment, y: 0, duration: duration)
+            action.timingMode = .easeInEaseOut
+            basket.run(action)
         }
         else {
-            basket.run(SKAction.moveBy(x: -increment, y: 0, duration: duration))
+            let action = SKAction.moveBy(x: -increment, y: 0, duration: duration)
+            action.timingMode = .easeInEaseOut
+            basket.run(action)
         }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         let increment = CGFloat(frame.width * 0.01)
-        let duration = 0.05
+        let duration = 0.09
         let events = event?.allTouches
         let touchEvent = events?.first
         let touchLocation = touchEvent?.location(in: self)
         let location = CGPoint(x: touchLocation!.x, y: touchLocation!.y)
         if (location.x > frame.midX) {
-            basket.run(SKAction.moveBy(x: increment, y: 0, duration: duration))
+            let action = SKAction.moveBy(x: increment, y: 0, duration: duration)
+            action.timingMode = .easeInEaseOut
+            basket.run(action)
         }
         else {
-            basket.run(SKAction.moveBy(x: -increment, y: 0, duration: duration))
+            let action = SKAction.moveBy(x: -increment, y: 0, duration: duration)
+            action.timingMode = .easeInEaseOut
+            basket.run(action)
         }
     } 
 }

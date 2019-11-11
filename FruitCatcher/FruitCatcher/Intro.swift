@@ -38,20 +38,20 @@ class Intro: SKScene {
         textNode.numberOfLines = 3
         textNode.fontSize = CGFloat(frame.height * 0.05)
         textNode.horizontalAlignmentMode = .center
-        textNode.position = CGPoint(x: size.width / 2.0, y: (size.height / 2) + (size.height * 0.1))
+        textNode.position = CGPoint(x: (size.width / 2.0), y: (size.height / 2) + (size.height * 0.1))
         textNode.name = "Welcome Label"
         addChild(textNode)
         
         // the play button background
-        let playRect = SKSpriteNode(color: UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), size: CGSize(width: 150.0, height: 70.0))
-        playRect.position = CGPoint(x: size.width / 2.0, y: (size.height / 2) + 15.0)
+        let playRect = SKSpriteNode(color: UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), size: CGSize(width: (size.height * 0.1), height: (size.height * 0.08)))
+        playRect.position = CGPoint(x: (size.width / 2.0), y: (size.height / 2) + (size.height * 0.01))
         playRect.name = "Play Rectangle"
         addChild(playRect)
         
         // the play button label
         playButton = SKLabelNode(fontNamed: "Helvetica Bold")
         playButton.text = "play!"
-        playButton.fontSize = 44
+        textNode.fontSize = CGFloat(frame.height * 0.05)
         playButton.fontColor = UIColor(red: r, green: g, blue: b, alpha: a)
         playButton.position = CGPoint(x: size.width / 2.0, y: (size.height / 2))
         playButton.name = "Play Label"
@@ -61,8 +61,8 @@ class Intro: SKScene {
         if (didWin) {
             let textNode = SKLabelNode(fontNamed: "Helvetica Bold")
             textNode.text = "congrats, you won :)"
-            textNode.fontSize = 54
-            textNode.position = CGPoint(x: size.width / 2.0, y: (size.height / 2) + 185)
+            textNode.fontSize = CGFloat(frame.height * 0.05)
+            textNode.position = CGPoint(x: size.width / 2.0, y: (size.height / 2) + (size.height * 0.2))
             textNode.name = "Winning Label"
             addChild(textNode)
         }
@@ -89,17 +89,5 @@ class Intro: SKScene {
             }
         }
         
-//    override func mouseDown(with event: UIEvent) {
-//        let eventLocation = event.locationInWindow
-//        let location = CGPoint(x: eventLocation.x, y: eventLocation.y)
-//        if playButton.contains(location) {
-//            if let view = view {
-//                let game = Game(size: size)
-//                let transition = SKTransition.fade(withDuration: 1.0)
-//                view.presentScene(game, transition: transition)
-//            }
-//        }
-//    }
-    
 }
 
