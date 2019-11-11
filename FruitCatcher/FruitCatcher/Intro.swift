@@ -60,9 +60,9 @@ class Intro: SKScene {
         // if the previous game was won, we want to congratulate the player
         if (didWin) {
             let textNode = SKLabelNode(fontNamed: "Helvetica Bold")
-            textNode.text = "congrats, you won :)"
+            textNode.text = "congrats, you won!"
             textNode.fontSize = CGFloat(frame.height * 0.05)
-            textNode.position = CGPoint(x: size.width / 2.0, y: (size.height / 2) + (size.height * 0.2))
+            textNode.position = CGPoint(x: size.width / 2.0, y: (size.height / 2) - (size.height * 0.2))
             textNode.name = "Winning Label"
             addChild(textNode)
         }
