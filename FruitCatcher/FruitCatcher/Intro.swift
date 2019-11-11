@@ -12,7 +12,6 @@ import SpriteKit
 class Intro: SKScene {
     
     var playButton: SKLabelNode!
-    var didWin: Bool = false
     
     // set up the scene to display the intro screen
     override func didMove(to view: SKView) {
@@ -57,22 +56,8 @@ class Intro: SKScene {
         playButton.name = "Play Label"
         addChild(playButton)
         
-        // if the previous game was won, we want to congratulate the player
-        if (didWin) {
-            let textNode = SKLabelNode(fontNamed: "Helvetica Bold")
-            textNode.text = "congrats, you won!"
-            textNode.fontSize = CGFloat(frame.height * 0.05)
-            textNode.position = CGPoint(x: size.width / 2.0, y: (size.height / 2) - (size.height * 0.2))
-            textNode.name = "Winning Label"
-            addChild(textNode)
-        }
-        didWin = false // reset for next game
     }
-    
-    // setting function to maintain data encapsulation policies
-    func setWin(to newBool: Bool) {
-        self.didWin = newBool;
-    }
+
     
     // when the player presses the button, we want to start the game with a Game scene
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

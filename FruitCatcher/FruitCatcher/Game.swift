@@ -19,6 +19,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
     var ground: SKSpriteNode!
     var pointsLabel: SKLabelNode!
     var randomSourse = GKLinearCongruentialRandomSource.sharedRandom()
+    var fruitTextures: [SKTexture] = []
     
     // the set up for the entire game happens here
     override func didMove(to view: SKView) {
@@ -61,7 +62,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
         let peachTexture = SKTexture(imageNamed: "Peach Photo.png")
         let pineappleTexture = SKTexture(imageNamed: "Pineapple Photo.png")
         
-        let fruitTextures = [appleTexture, bananaTexture, grapeTexture, peachTexture, pineappleTexture]
+        fruitTextures = [appleTexture, bananaTexture, grapeTexture, peachTexture, pineappleTexture]
         
     
         // points label
@@ -87,16 +88,22 @@ class Game: SKScene, SKPhysicsContactDelegate {
    
     // add falling fruit to the scene that will collide with everything
     func addFruit(at location: CGPoint) {
-        let rain = SKSpriteNode(color: UIColor.blue, size: CGSize(width: 20.0, height: 20.0))
-        rain.position = location
-        rain.name = "Rain"
-        let rainBody = SKPhysicsBody(rectangleOf: rain.size)
-        rainBody.isDynamic = true
-        rainBody.affectedByGravity = false
-        rainBody.contactTestBitMask = 0xffffffff // hit EVERYTHING
-        rain.physicsBody = rainBody
-        rain.run(SKAction.move(to: CGPoint(x: rain.position.x, y: 10.0), duration: TimeInterval(floatLiteral: 2.0)))
-        addChild(rain)
+        let random = Int(randomSourse.nextUniform() * 10.0)
+        let fruitChoice = random % fruitTextures.count
+        let fruitTexture = fruitTextures[fruitChoice]
+        let fruit = SKSpriteNode(texture: fruitTexture)
+        fruit.position = location
+        let fruitBody = SKPhysicsBody(rectangleOf: fruit.size)
+        
+        fruitBody.isDynamic = true
+        fruitBody.affectedByGravity = false
+        fruitBody.contactTestBitMask = 0xffffffff // hit EVERYTHING
+        fruit.physicsBody = fruitBody
+        fruit.run(SKAction.move(to: CGPoint(x: fruit.position.x, y: 10.0), duration: TimeInterval(floatLiteral: 2.0)))
+        fruit.name = "Fruit"
+        addChild(fruit)
+        
+        
     }
 //    
 //    // each time a key is pressed, we want to acces which key was pressed 
@@ -160,25 +167,25 @@ class Game: SKScene, SKPhysicsContactDelegate {
         guard let nodeA = contact.bodyA.node, let nodeB = contact.bodyB.node else { return }
         guard let nameA = nodeA.name, let nameB = nodeB.name else { return }
         
-        if (nameA == "Basket" && nameB == "Rain") {
+        if (nameA == "Basket" && nameB == "Fruit") {
             nodeB.run(SKAction.removeFromParent())
             pointsLabel.text = String(points + 10)
             points += 2
             evaluatePoints()
         } 
-        else if (nameB == "Basket" && nameA == "Rain") {
+        else if (nameB == "Basket" && nameA == "Fruit") {
             nodeA.run(SKAction.removeFromParent())
             pointsLabel.text = String(points + 10)
             points += 2
             evaluatePoints()
         } 
-        else if (nameA == "Ground" && nameB == "Rain") { // symmetric case of above if statement
+        else if (nameA == "Ground" && nameB == "Fruit") { // symmetric case of above if statement
             nodeB.run(SKAction.removeFromParent())
             pointsLabel.text = String(points - 1)
             points -= 1
             evaluatePoints()
         }
-        else if (nameB == "Ground" && nameA == "Rain") { // symmetric case of above if statement
+        else if (nameB == "Ground" && nameA == "Fruit") { // symmetric case of above if statement
             nodeA.run(SKAction.removeFromParent())
             pointsLabel.text = String(points - 1)
             points -= 1
@@ -192,7 +199,6 @@ class Game: SKScene, SKPhysicsContactDelegate {
         if (points >= 20) {
             if let view = view {
                 let intro = Intro(size: size)
-                intro.setWin(to: true)
                 let transition = SKTransition.fade(withDuration: 3.0)
                 view.presentScene(intro, transition: transition)
             }
