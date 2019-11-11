@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A578A6782379EF5400FC021C /* Apple Photo.png in Resources */ = {isa = PBXBuildFile; fileRef = A578A6772379EF5400FC021C /* Apple Photo.png */; };
+		A578A67A2379EF6C00FC021C /* Pineapple Photo.png in Resources */ = {isa = PBXBuildFile; fileRef = A578A6792379EF6C00FC021C /* Pineapple Photo.png */; };
+		A578A67C2379EFFC00FC021C /* Grape Photo.png in Resources */ = {isa = PBXBuildFile; fileRef = A578A67B2379EFFC00FC021C /* Grape Photo.png */; };
+		A578A67E2379F0C800FC021C /* Peach Photo.png in Resources */ = {isa = PBXBuildFile; fileRef = A578A67D2379F0C800FC021C /* Peach Photo.png */; };
+		A578A6802379F13B00FC021C /* Banana Photo.png in Resources */ = {isa = PBXBuildFile; fileRef = A578A67F2379F13B00FC021C /* Banana Photo.png */; };
 		A8CED1852375F965006084BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CED1842375F965006084BD /* AppDelegate.swift */; };
 		A8CED1872375F965006084BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CED1862375F965006084BD /* ViewController.swift */; };
 		A8CED18A2375F965006084BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8CED1882375F965006084BD /* Main.storyboard */; };
@@ -18,6 +23,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A578A6772379EF5400FC021C /* Apple Photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Apple Photo.png"; sourceTree = "<group>"; };
+		A578A6792379EF6C00FC021C /* Pineapple Photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pineapple Photo.png"; sourceTree = "<group>"; };
+		A578A67B2379EFFC00FC021C /* Grape Photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Grape Photo.png"; sourceTree = "<group>"; };
+		A578A67D2379F0C800FC021C /* Peach Photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Peach Photo.png"; sourceTree = "<group>"; };
+		A578A67F2379F13B00FC021C /* Banana Photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Banana Photo.png"; sourceTree = "<group>"; };
 		A8CED1812375F964006084BD /* FruitCatcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FruitCatcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8CED1842375F965006084BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8CED1862375F965006084BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +75,11 @@
 				A8CED19B2375FCA8006084BD /* Game.swift */,
 				A8CED19D2375FE96006084BD /* Intro.swift */,
 				A8CED1A1237604C3006084BD /* basket.png */,
+				A578A6772379EF5400FC021C /* Apple Photo.png */,
+				A578A67F2379F13B00FC021C /* Banana Photo.png */,
+				A578A67B2379EFFC00FC021C /* Grape Photo.png */,
+				A578A67D2379F0C800FC021C /* Peach Photo.png */,
+				A578A6792379EF6C00FC021C /* Pineapple Photo.png */,
 				A8CED1882375F965006084BD /* Main.storyboard */,
 				A8CED18B2375F966006084BD /* Assets.xcassets */,
 				A8CED18D2375F966006084BD /* LaunchScreen.storyboard */,
@@ -131,8 +146,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A578A67A2379EF6C00FC021C /* Pineapple Photo.png in Resources */,
+				A578A67C2379EFFC00FC021C /* Grape Photo.png in Resources */,
+				A578A6782379EF5400FC021C /* Apple Photo.png in Resources */,
+				A578A6802379F13B00FC021C /* Banana Photo.png in Resources */,
 				A8CED18F2375F966006084BD /* LaunchScreen.storyboard in Resources */,
 				A8CED18C2375F966006084BD /* Assets.xcassets in Resources */,
+				A578A67E2379F0C800FC021C /* Peach Photo.png in Resources */,
 				A8CED1A2237604C4006084BD /* basket.png in Resources */,
 				A8CED18A2375F965006084BD /* Main.storyboard in Resources */,
 			);
@@ -301,7 +321,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.FruitCatche;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.FruitCatcher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -319,7 +339,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.FruitCatche;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.FruitCatcher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
